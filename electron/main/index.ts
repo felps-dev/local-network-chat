@@ -269,7 +269,7 @@ ipcMain.handle(
   async (_, externalId: number, message: string) => {
     await chat_database.updateAsync(
       { externalId },
-      { $set: { mustUpdate: true, message } },
+      { $set: { mustUpdate: true, message, lastUpdate: Date.now() } },
       {}
     );
     return true;

@@ -138,7 +138,6 @@ function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const baloonsRef = React.useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<MessageInterface[]>([]);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selectedMessage, setSelectedMessage] =
     React.useState<MessageInterface | null>(null);
 
@@ -184,12 +183,7 @@ function App() {
   }, [messages]);
 
   const onBaloonClick = (e: any, message: MessageInterface) => {
-    setAnchorEl(e.currentTarget);
     setSelectedMessage(message);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
   return (
