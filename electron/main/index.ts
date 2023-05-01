@@ -191,10 +191,11 @@ syncService.defineSync("test", {
     return await chat_database.findOneAsync({ mustUpdate: true });
   },
   decideUpdate: async (newData: any) => {
-    const localData = await chat_database.findOneAsync({
-      externalId: newData.externalId,
-    });
-    return Date.parse(newData.lastUpdate) > Date.parse(localData.lastUpdate);
+    true;
+    // const localData = await chat_database.findOneAsync({
+    //   externalId: newData.externalId,
+    // });
+    // return Date.parse(newData.lastUpdate) > Date.parse(localData.lastUpdate);
   },
   update: async (data: any) => {
     await chat_database.updateAsync(
